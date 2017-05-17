@@ -9,7 +9,6 @@
         <module name="chapter1" />
         <module name="smart4jchapter1" />
         <module name="smart4jchapter2" />
-        <module name="smart4jparents" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">

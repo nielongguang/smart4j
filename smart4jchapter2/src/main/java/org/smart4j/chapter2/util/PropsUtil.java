@@ -1,6 +1,5 @@
 package org.smart4j.chapter2.util;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,37 +9,37 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- *
- * Created by Administrator on 2017/5/17.
+ * Created by Subin on 2016/3/12 at 23:37.
+ * Function:属性文件工具类
  */
-
-public final class PropsUtil {
+public class PropsUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(PropsUtil.class);
 
-    /**
-     * 加载属性文件
-     */
     public static Properties loadProps(String fileName) {
-        Properties properties = null;
-        InputStream is;
-        is = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+        Properties props = null;
+        InputStream is = null;
         try {
+            is = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
             if (is == null) {
-                throw new FileNotFoundException(fileName + "file is not find");
+                throw new FileNotFoundException(fileName + "file is not found");
             }
-        }catch (FileNotFoundException e){
-            LOGGER.error("load properties file failure",e);
-        }finally {
+            props = new Properties();
+            props.load(is);
+        } catch (IOException e) {
+            LOGGER.error("load properties file failure", e);
+        } finally {
             if (is != null) {
                 try {
                     is.close();
                 } catch (IOException e) {
-                    LOGGER.error("close input stream failure",e);
+                    LOGGER.error("close input stream failure", e);
                 }
             }
         }
-    return properties;
+        return props;
     }
+
+
 
 
 }

@@ -17,14 +17,9 @@ import java.util.Map;
 * @since <pre>ÎåÔÂ 17, 2017</pre> 
 * @version 1.0 
 */ 
-public class CustomerServiceTest { 
+public class CustomerServiceTest {
 
-    private final CustomerService customerService;
-
-
-    public CustomerServiceTest() {
-        customerService =new  CustomerService();
-    }
+    CustomerService customerService =new CustomerService() ;
 
     @Before
 public void before() throws Exception { 
@@ -41,6 +36,7 @@ public void after() throws Exception {
 */ 
 @Test
 public void testGetCustomerList() throws Exception {
+
     long length =2;
     List<Customer> customerList = customerService.getCustomerList();
     Assert.assertEquals(length,customerList.size());
