@@ -13,9 +13,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="smart4jchapter1" target="1.8" />
-      <module name="smart4jchapter2" target="1.8" />
-      <module name="smart4jparents" target="1.8" />
+      <module name="smart4jchapter1" target="1.7" />
+      <module name="smart4jchapter2" target="1.7" />
+      <module name="smart4jparents" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

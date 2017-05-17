@@ -1,8 +1,14 @@
 package org.smart4j.chapter2.service; 
 
-import org.junit.Test; 
+import org.junit.Assert;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+import org.smart4j.chapter2.model.Customer;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /** 
 * CustomerService Tester. 
@@ -13,7 +19,14 @@ import org.junit.After;
 */ 
 public class CustomerServiceTest { 
 
-@Before
+    private final CustomerService customerService;
+
+
+    public CustomerServiceTest() {
+        customerService =new  CustomerService();
+    }
+
+    @Before
 public void before() throws Exception { 
 } 
 
@@ -27,8 +40,10 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testGetCustomerList() throws Exception { 
-//TODO: Test goes here... 
+public void testGetCustomerList() throws Exception {
+    long length =2;
+    List<Customer> customerList = customerService.getCustomerList();
+    Assert.assertEquals(length,customerList.size());
 } 
 
 /** 
@@ -37,8 +52,9 @@ public void testGetCustomerList() throws Exception {
 * 
 */ 
 @Test
-public void testGetCustomer() throws Exception { 
-//TODO: Test goes here... 
+public void testGetCustomer() throws Exception {
+    long id =1;
+   Assert.assertNotNull(customerService.getCustomer(id));
 } 
 
 /** 
@@ -47,9 +63,16 @@ public void testGetCustomer() throws Exception {
 * 
 */ 
 @Test
-public void testCreateCustomer() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testCreateCustomer() throws Exception {
+    Map<String,Object> fileMap = new HashMap<>();
+    fileMap.put("name", "customer100");
+    fileMap.put("contact","john");
+    fileMap.put("telephone", "13512345678");
+    boolean result =customerService.createCustomer(fileMap);
+    Assert.assertTrue(result);
+
+
+}
 
 /** 
 * 
@@ -58,7 +81,14 @@ public void testCreateCustomer() throws Exception {
 */ 
 @Test
 public void testUpdateCustomer() throws Exception { 
-//TODO: Test goes here... 
+  Map<String,Object> fileMap = new HashMap<>();
+    fileMap.put("contact", "Eric");
+    fileMap.put("name", "customer100");
+    fileMap.put("telephone","13412345678");
+    boolean result=customerService.createCustomer(fileMap);
+    Assert.assertTrue(result);
+
+
 } 
 
 /** 
@@ -67,8 +97,9 @@ public void testUpdateCustomer() throws Exception {
 * 
 */ 
 @Test
-public void testDeleteCustomerCustomer() throws Exception { 
-//TODO: Test goes here... 
+public void testDeleteCustomerCustomer() throws Exception {
+    long id =1;
+    Assert.assertTrue(customerService.deleteCustomerCustomer(id));
 } 
 
 

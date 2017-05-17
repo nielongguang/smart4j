@@ -1,6 +1,5 @@
 package org.smart4j.chapter2.service;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.smart4j.chapter2.model.Customer;
 
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,7 @@ public class CustomerService extends HttpServlet{
 
     /**
      * 客户列表
-     * @return
+     * @return List<Customer>  一个限定类型为customer的列表
      */
     public List<Customer> getCustomerList() {
         //todo
@@ -25,8 +24,6 @@ public class CustomerService extends HttpServlet{
 
     /**
      * 客户
-     * @param Id
-     * @return
      */
     public Customer getCustomer(long Id){
         //TODO
@@ -36,18 +33,14 @@ public class CustomerService extends HttpServlet{
 
     /**
      * 新增客户
-     * @return
      */
-    public boolean CreateCustomer(Map<String, Object> fileName) {
+    public boolean createCustomer(Map<String, Object> fileName) {
         //TODO
         return false;
     }
 
     /**
      * 更新客户
-     * @param id
-     * @param fileName
-     * @return
      */
     public boolean updateCustomer(long id,Map<String, Object> fileName) {
         //TODO
@@ -56,8 +49,6 @@ public class CustomerService extends HttpServlet{
 
     /**
      * 删除客户
-     * @param id
-     * @return
      */
     public boolean deleteCustomerCustomer( long id) {
         //TODO
